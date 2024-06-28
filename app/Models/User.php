@@ -44,4 +44,15 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function events()
+    {
+        return $this->hasMany(Event::class);
+    }
+
+    // relation with follows
+    public function followers()
+    {
+        return $this->hasMany(Follow::class);
+    }
 }
