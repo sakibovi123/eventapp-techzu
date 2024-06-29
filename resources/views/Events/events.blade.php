@@ -3,22 +3,25 @@
 {{-- @section('title', 'Dashboard') --}}
 
 @section('content')
-    <div class="flex items-center justify-end my-4">
+    <div class="flex items-center justify-end my-4 w-full">
 
-        <form action="{{ route('importCsv') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('importCsv') }}"
+         class="flex items-center justify-center my-2" method="POST" enctype="multipart/form-data">
             @csrf
             <input type="file" name="csv_file" accept=".csv">
             <button type="submit" class="bg-blue-200 p-1 rounded shadow-md mx-5 transition-all hover:bg-blue-100">Import</button>
         </form>
+        <div>
+            <a href="{{ route('events.create') }}" class="text-sm font-normal bg-green-400 hover:bg-green-300 transition-all p-2 rounded cursor-pointer">Create Event</a>
+        </div>
 
-        <a href="{{ route('events.create') }}" class="text-sm font-normal bg-green-400 hover:bg-green-300 transition-all p-2 rounded cursor-pointer">Create Event</a>
     </div>
     @if( $events )
     @foreach ($events as $event)
     <div class="bg-slate-100 border-1 rounded p-5 my-5">
         <div class="flex items-center justify-end">
             <a href="{{ route('events.edit', $event->id) }}" class="mx-7 text-red-400">Edit</a>
-            <form action="{{ route('deleteEvent', $event->id) }}" method="POST">
+            <form action="{{ route('deleteEvent', $event->id) }}" method="POST" class="my-2">
                 @csrf @method('DELETE')
                 <button type="submit" class="mx-7 text-red-400">Delete</button>
             </form>
