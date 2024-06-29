@@ -79,16 +79,20 @@ vendor\bin\sail up -d
 Install PHP dependencies:
 
 ## bash
-Copy code
-vendor\bin\sail composer install
-Generate application key:
+ - Copy code
+ - vendor\bin\sail composer install
+ - Generate application key: vendor\bin\sail artisan key:generate
 
 ## bash
-Copy code
-vendor\bin\sail artisan key:generate
-Run database migrations:
+ - Copy code
+ - vendor\bin\sail artisan key:generate
+ - Run database migrations:
 
 ## bash
-Copy code
-vendor\bin\sail artisan migrate
-Access the application in your web browser at http://localhost:8000 (or the appropriate port if configured differently).
+ - Copy code
+ - vendor\bin\sail artisan migrate
+ - Access the application in your web browser at http://localhost:8000 (or the appropriate port if configured differently).
+
+
+## Note
+ - Added mailtrap credentials for testing purpose
