@@ -16,8 +16,8 @@
                 <p class="text-md text-red-500">{{ $message }}</p>
             @enderror
             <button type="submit" class="bg-green-100 p-2 my-2">Sign in</button>
-            <small>Don't have an account <a href="" class="text-blue-500 my-2">Sign up</a></small>
-            
+            <small>Don't have an account <a href="{{ route('register') }}" class="text-blue-500 my-2">Sign up</a></small>
+
         </form>
     </div>
 @endsection

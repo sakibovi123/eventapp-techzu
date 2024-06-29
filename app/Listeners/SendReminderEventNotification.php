@@ -9,6 +9,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use App\Models\User;
 use App\Models\Follow;
 use Illuminate\Support\Facades\Mail;
+use Carbon\Carbon;
 
 
 class SendReminderEventNotification
@@ -32,8 +33,10 @@ class SendReminderEventNotification
         $users = User::whereIn("id", $followers)->get();
         foreach( $users as $user )
         {
-            Mail::to($user->email)->later(now()->addSeconds(2), new ReminderNotification($event->event));
-                
+            // notification sending time -> It will send email before 10 min of ending event
+            $notification_time = Carbon::parse($event->event->end_time)->subMinutes(10);
+            Mail::to($user->email)->later($notification_time, new ReminderNotification($event->event));
+
         }
     }
 }

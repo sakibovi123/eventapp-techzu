@@ -24,7 +24,7 @@ class FollowController extends Controller
             ]);
 
             //dispatching
-            // Queue::later(now()->addSeconds(2), new ReminderEvents($event));
+
             ReminderEvents::dispatch($event);
 
 
@@ -44,7 +44,7 @@ class FollowController extends Controller
             if( $follow ) {
                 $follow->delete();
             }
-            
+
         }
         return redirect()->route("events.index");
     }

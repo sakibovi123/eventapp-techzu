@@ -21,9 +21,9 @@ return new class extends Migration
             $table->string("event_name");
             $table->string("title");
             $table->text('description')->nullable();
-            $table->date('start_time');
-            $table->date('end_time')->nullable();
-            $table->enum("status", ["Completed", "Upcoming"])->default("Upcoming")->nullable();
+            $table->datetime('start_time');
+            $table->datetime('end_time')->nullable();
+            $table->enum("status", ["Completed", "Upcoming", "Ongoing"])->default("Upcoming")->nullable();
 
             $table->foreignIdFor(User::class);
         });

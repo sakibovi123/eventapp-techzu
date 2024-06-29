@@ -9,11 +9,11 @@
 </head>
 <body>
 
-    @include("Layouts.header")
+    {{-- @include("Layouts.header") --}}
 
     <div class="container mx-auto">
         @yield('content')
     </div>
-    
+
 </body>
 </html>

@@ -14,8 +14,8 @@ class Event extends Model
     protected $fillable = ['event_name', 'title', 'description', 'start_time', 'end_time', 'status', 'user_id', 'event_reminder_id'];
 
     protected $casts = [
-        "start_time" => "date",
-        "end_time" => "date"
+        "start_time" => "datetime",
+        "end_time" => "datetime"
     ];
 
     // relation for user

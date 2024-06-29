@@ -21,8 +21,8 @@
                 <p class="text-md text-red-500">{{ $message }}</p>
             @enderror
             <button type="submit" class="bg-green-100 p-2 my-2">Sign up</button>
-            <small>Already have an account <a href="" class="text-blue-500 my-2">Sign in</a></small>
-            
+            <small>Already have an account <a href="{{ route('login') }}" class="text-blue-500 my-2">Sign in</a></small>
+
         </form>
     </div>
 @endsection
